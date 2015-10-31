@@ -1,0 +1,38 @@
+{
+  "name": "format-si-prefix",
+  "version": "0.0.0",
+  "description": "Format and unformat numbers with SI prefixes",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rimraf dist && babel src --out-dir dist --ignore \"__tests__\"",
+    "deploy": "./deploy.sh",
+    "lint": "eslint src/",
+    "mocha": "mocha src/**/*__tests__/* -R spec --require test-setup",
+    "test": "npm run lint && npm run mocha",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThomWright/format-si-prefix"
+  },
+  "keywords": [],
+  "author": "Thom Wright <npm@thomwright.co.uk> (http://thomwright.co.uk/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThomWright/format-si-prefix/issues"
+  },
+  "homepage": "https://github.com/ThomWright/format-si-prefix",
+  "dependencies": {
+    "parseunit": "^0.2.1"
+  },
+  "devDependencies": {
+    "babel": "^5.4.7",
+    "babel-eslint": "^4.0.0",
+    "chai": "^3",
+    "chai-stats": "^0.3.0",
+    "eslint": "^1.0.0",
+    "eslint-config-circuitsim": "^0",
+    "mocha": "^2.2.5",
+    "rimraf": "^2.3.4"
+  }
+}
