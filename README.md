@@ -1,5 +1,4 @@
 # format-si-prefix
-[![Travis](https://img.shields.io/travis/ThomWright/format-si-prefix.svg?style=flat-square)](https://travis-ci.org/ThomWright/format-si-prefix)
 [![npm](https://img.shields.io/npm/v/format-si-prefix.svg?style=flat-square)](https://www.npmjs.com/package/format-si-prefix)
 [![David](https://img.shields.io/david/ThomWright/format-si-prefix.svg?style=flat-square)](https://david-dm.org/ThomWright/format-si-prefix)
 [![David](https://img.shields.io/david/dev/ThomWright/format-si-prefix.svg?style=flat-square)](https://david-dm.org/ThomWright/format-si-prefix#info=devDependencies)
