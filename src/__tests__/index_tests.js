@@ -121,6 +121,11 @@ describe('unformatSI()', () => {
   [
     ...BIDIRECTIONAL,
     {
+      name: 'u for micro',
+      number: 0.000123,
+      string: '123u'
+    },
+    {
       name: 'long non-prefixed number',
       number: 123456,
       string: '123456'
