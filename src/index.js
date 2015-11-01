@@ -24,19 +24,30 @@ export function formatSI(num) {
   if (num === 0) {
     return '0';
   }
-  let sig = num;
+  let sig = num; // significand
   let exponent = 0;
-  while(sig >= 1000 && exponent < 24) {
+  while (sig >= 1000 && exponent < 24) {
     sig /= 1000;
     exponent += 3;
   }
-  while(sig < 1 && exponent > -24) {
+  while (sig < 1 && exponent > -24) {
     sig *= 1000;
     exponent -= 3;
   }
   if (exponent === 0) {
-    return sig.toFixed(0);
-  } else if (sig > 1000) {
+    // use first 3 significant figures (excluding zeros after the decimal)
+    let str = sig.toFixed(2);
+    if (str.includes('.')) {
+      while (str.endsWith('0')) {
+        str = str.substr(0, str.length - 1);
+      }
+      if (str.endsWith('.')) {
+        str = str.substr(0, str.length - 1);
+      }
+    }
+    return str;
+  } else if (sig > 1000) { // exponent == 24
+    // significand can be arbitrarily long
     return sig.toFixed(0) + PREFIXES[exponent];
   } else {
     return parseFloat(sig.toPrecision(3)) + PREFIXES[exponent];

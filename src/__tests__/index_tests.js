@@ -62,6 +62,11 @@ const BIDIRECTIONAL = [
         string: '1'
       },
       {
+        name: 'decimal',
+        number: 5.5,
+        string: '5.5'
+      },
+      {
         name: 'hundreds',
         number: 123,
         string: '123'
