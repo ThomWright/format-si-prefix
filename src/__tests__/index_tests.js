@@ -105,6 +105,11 @@ const BIDIRECTIONAL = [
         name: '> yotta',
         number: 1230000000000000000000000000,
         string: '1230Y'
+      },
+      {
+        name: 'one significant digit',
+        number: 1000000,
+        string: '1M'
       }
 ];
 
