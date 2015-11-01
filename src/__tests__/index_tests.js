@@ -141,9 +141,19 @@ describe('unformatSI()', () => {
       string: '0.000123456'
     },
     {
+      name: 'even longer decimal non-prefixed number',
+      number: 0.000000000123,
+      string: '0.000000000123'
+    },
+    {
       name: 'long prefixed number',
       number: 123456000000,
       string: '123456M'
+    },
+    {
+      name: 'exponential notation',
+      number: 12000000,
+      string: '12e+6'
     }
   ].forEach((test) => {
     it(test.name, () => {
