@@ -34,24 +34,11 @@ export function formatSI(num) {
     sig *= 1000;
     exponent -= 3;
   }
-  if (exponent === 0) {
-    // use first 3 significant figures (excluding zeros after the decimal)
-    let str = sig.toFixed(2);
-    if (str.includes('.')) {
-      while (str.endsWith('0')) {
-        str = str.substr(0, str.length - 1);
-      }
-      if (str.endsWith('.')) {
-        str = str.substr(0, str.length - 1);
-      }
-    }
-    return str;
-  } else if (sig > 1000) { // exponent == 24
+  if (sig > 1000) { // exponent == 24
     // significand can be arbitrarily long
     return sig.toFixed(0) + PREFIXES[exponent];
-  } else {
-    return parseFloat(sig.toPrecision(3)) + PREFIXES[exponent];
   }
+  return parseFloat(sig.toPrecision(3)) + PREFIXES[exponent];
 }
 
 const MULTIPLIERS = {
