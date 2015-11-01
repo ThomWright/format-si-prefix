@@ -21,6 +21,9 @@ const PREFIXES = {
 };
 
 export function formatSI(num) {
+  if (num === 0) {
+    return '0';
+  }
   let sig = num;
   let exponent = 0;
   while(sig >= 1000 && exponent < 24) {

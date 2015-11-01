@@ -52,6 +52,11 @@ const BIDIRECTIONAL = [
         string: '123m'
       },
       {
+        name: 'zero',
+        number: 0,
+        string: '0'
+      },
+      {
         name: 'one',
         number: 1,
         string: '1'
