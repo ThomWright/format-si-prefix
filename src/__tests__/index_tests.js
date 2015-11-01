@@ -124,7 +124,14 @@ const BIDIRECTIONAL = [
 ];
 
 describe('formatSI()', () => {
-  BIDIRECTIONAL.forEach((test) => {
+  [
+    ...BIDIRECTIONAL,
+    {
+      name: 'rounding',
+      number: 1234.56,
+      string: '1.23k'
+    }
+  ].forEach((test) => {
     it(test.name, () => {
       expect(formatSI(test.number)).to.equal(test.string);
     });
@@ -152,8 +159,8 @@ describe('unformatSI()', () => {
     },
     {
       name: 'even longer decimal non-prefixed number',
-      number: 0.000000000123,
-      string: '0.000000000123'
+      number: 0.0000000001234,
+      string: '0.0000000001234'
     },
     {
       name: 'long prefixed number',
