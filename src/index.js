@@ -62,6 +62,9 @@ const MULTIPLIERS = {
 };
 
 export function unformatSI(string) {
+  if (string == null || string === '') {
+    return NaN;
+  }
   const [val, unit] = parseUnit(string);
   const multiplier = MULTIPLIERS[unit];
   return val * multiplier;
