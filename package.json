@@ -47,7 +47,7 @@
   },
   "homepage": "https://github.com/ThomWright/format-si-prefix",
   "dependencies": {
-    "parseunit": "^0.3.0"
+    "parseunit": "^0"
   },
   "devDependencies": {
     "babel": "^5.4.7",
