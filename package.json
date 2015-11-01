@@ -1,6 +1,6 @@
 {
   "name": "format-si-prefix",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Format and unformat numbers with SI prefixes",
   "main": "dist/index.js",
   "scripts": {
