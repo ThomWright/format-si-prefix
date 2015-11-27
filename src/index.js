@@ -24,7 +24,7 @@ export function formatSI(num) {
   if (num === 0) {
     return '0';
   }
-  let sig = num; // significand
+  let sig = Math.abs(num); // significand
   let exponent = 0;
   while (sig >= 1000 && exponent < 24) {
     sig /= 1000;
@@ -34,11 +34,13 @@ export function formatSI(num) {
     sig *= 1000;
     exponent -= 3;
   }
+
+  const signPrefix = num < 0 ? '-' : '';
   if (sig > 1000) { // exponent == 24
     // significand can be arbitrarily long
-    return sig.toFixed(0) + PREFIXES[exponent];
+    return signPrefix + sig.toFixed(0) + PREFIXES[exponent];
   }
-  return parseFloat(sig.toPrecision(3)) + PREFIXES[exponent];
+  return signPrefix + parseFloat(sig.toPrecision(3)) + PREFIXES[exponent];
 }
 
 const MULTIPLIERS = {

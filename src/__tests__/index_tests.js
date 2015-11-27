@@ -120,6 +120,16 @@ const BIDIRECTIONAL = [
         name: 'one significant digit',
         number: 1000000,
         string: '1M'
+      },
+      {
+        name: 'negative big number',
+        number: -10000000000,
+        string: '-10G'
+      },
+      {
+        name: 'negative one',
+        number: -1,
+        string: '-1'
       }
 ];
 
