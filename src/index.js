@@ -20,7 +20,7 @@ const PREFIXES = {
   '-24': 'y'
 };
 
-export function formatSI(num) {
+export function formatSI(num, space = false) {
   if (num === 0) {
     return '0';
   }
@@ -40,7 +40,14 @@ export function formatSI(num) {
     // significand can be arbitrarily long
     return signPrefix + sig.toFixed(0) + PREFIXES[exponent];
   }
-  return signPrefix + parseFloat(sig.toPrecision(3)) + PREFIXES[exponent];
+  
+  let str = signPrefix + parseFloat(sig.toPrecision(3));
+  if (space) {
+    str += ' ';
+  }
+  str += PREFIXES[exponent];
+  
+  return str;
 }
 
 const MULTIPLIERS = {
