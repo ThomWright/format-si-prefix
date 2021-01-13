@@ -25,7 +25,7 @@ const PREFIXES = {
  * @param {Number} num 
  * @param {Object} options 
  * @param {Boolean} options.space Determines whether a space will be inserted between the number and prefix. Default false.
- * @param {Boolean} options.plusMinus Determines whether the +/- sign will be prepended to the output string. Default false.
+ * @param {Boolean} options.sign Forces the + sign to be prepended to the output string if the number is positive. Default false.
  * @param {String} options.suffix Optionally adds a suffix to the output string for units.
  */
 export function formatSI(num, options = {}) {
@@ -59,9 +59,10 @@ export function formatSI(num, options = {}) {
     str += options.suffix;
   }
 
-  if (options.hasOwnProperty('plusMinus') && options.plusMinus) {
-    const symbol = sig >= 0 ? '+' : '-';
-    str = symbol + str;
+  if (options.hasOwnProperty('sign') && options.sign) {
+    if (sig >= 0) {
+      str = '+' + str;
+    }
   }
 
   return str;
