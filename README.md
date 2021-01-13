@@ -11,7 +11,7 @@ Format and unformat numbers with SI prefixes.
 
 ```javascript
 import {formatSI} from 'format-si-prefix';
-const string = formatSI(number);
+const string = formatSI(number, space);     // optional `space` boolean (default false) to add space between number and prefix
 ```
 
 | in            |     out |
