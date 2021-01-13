@@ -60,7 +60,7 @@ export function formatSI(num, options = {}) {
   }
 
   if (options.hasOwnProperty('sign') && options.sign) {
-    if (sig >= 0) {
+    if (num >= 0) {
       str = '+' + str;
     }
   }
