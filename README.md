@@ -11,8 +11,14 @@ Format and unformat numbers with SI prefixes.
 
 ```javascript
 import {formatSI} from 'format-si-prefix';
-const string = formatSI(number);
+const string = formatSI(number, options);     // optional `options` object
 ```
+
+Options:
+- `space`: (default false) adds a space between the number and prefix (ex. `1.2 k`)
+- `sign`: (default false) prepends a plus sign if the number is positive (ex. `+1.2k`)
+- `suffix`: appends a string to the formatted number (ex. `formatSI(1200, {suffix: 'Wh'})` => `1.2kWh`)
+
 
 | in            |     out |
 | ------------- | -------:|
