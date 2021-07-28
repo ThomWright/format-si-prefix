@@ -20,7 +20,15 @@ const PREFIXES = {
   '-24': 'y'
 };
 
-export function formatSI(num) {
+/**
+ * 
+ * @param {Number} num 
+ * @param {Object} options 
+ * @param {Boolean} options.space Determines whether a space will be inserted between the number and prefix. Default false.
+ * @param {Boolean} options.sign Forces the + sign to be prepended to the output string if the number is positive. Default false.
+ * @param {String} options.suffix Optionally adds a suffix to the output string for units.
+ */
+export function formatSI(num, options = {}) {
   if (num === 0) {
     return '0';
   }
@@ -40,7 +48,24 @@ export function formatSI(num) {
     // significand can be arbitrarily long
     return signPrefix + sig.toFixed(0) + PREFIXES[exponent];
   }
-  return signPrefix + parseFloat(sig.toPrecision(3)) + PREFIXES[exponent];
+  
+  let str = signPrefix + parseFloat(sig.toPrecision(3));
+  if (options.hasOwnProperty('space') && options.space) {
+    str += ' ';
+  }
+  str += PREFIXES[exponent];
+  
+  if (options.hasOwnProperty('suffix')) {
+    str += options.suffix;
+  }
+
+  if (options.hasOwnProperty('sign') && options.sign) {
+    if (num >= 0) {
+      str = '+' + str;
+    }
+  }
+
+  return str;
 }
 
 const MULTIPLIERS = {
